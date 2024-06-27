@@ -1,78 +1,64 @@
-package by.nexer.googlecalendar.messaging.event;
+package by.nexer.notificationservice.messaging.event;
 
 import java.util.Objects;
 
-public class TripSendEvent {
-    private String summary;
-    private String description;
-    private String startDate;
-    private String endDate;
+public class NotificationEmailEvent {
+    private String email;
+    private String title;
+    private String message;
 
-    public TripSendEvent() {
+    public NotificationEmailEvent() {
     }
 
-    public TripSendEvent(String summary, String description, String startDate, String endDate) {
-        this.summary = summary;
-        this.description = description;
-        this.startDate = startDate;
-        this.endDate = endDate;
+    public NotificationEmailEvent(String email, String title, String message) {
+        this.email = email;
+        this.title = title;
+        this.message = message;
     }
 
-    public String getSummary() {
-        return summary;
+    public String getEmail() {
+        return email;
     }
 
-    public void setSummary(String summary) {
-        this.summary = summary;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getDescription() {
-        return description;
+    public String getTitle() {
+        return title;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getStartDate() {
-        return startDate;
+    public String getMessage() {
+        return message;
     }
 
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-
-    public String getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-
-    @Override
-    public String toString() {
-        return "TripSendEvent{" +
-                "summary='" + summary + '\'' +
-                ", description='" + description + '\'' +
-                ", startDate='" + startDate + '\'' +
-                ", endDate='" + endDate + '\'' +
-                '}';
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TripSendEvent that = (TripSendEvent) o;
-        return Objects.equals(summary, that.summary) &&
-                Objects.equals(description, that.description) &&
-                Objects.equals(startDate, that.startDate) &&
-                Objects.equals(endDate, that.endDate);
+        NotificationEmailEvent that = (NotificationEmailEvent) o;
+        return Objects.equals(email, that.email) && Objects.equals(title, that.title) && Objects.equals(message, that.message);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(summary, description, startDate, endDate);
+        return Objects.hash(email, title, message);
+    }
+
+    @Override
+    public String toString() {
+        return "NotificationEmailEvent{" +
+                "email='" + email + '\'' +
+                ", title='" + title + '\'' +
+                ", message='" + message + '\'' +
+                '}';
     }
 }
